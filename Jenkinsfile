@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git url: 'https://github.com/sency90/my-ci-demo.git', branch: 'main'
+        git url: 'https://github.com/sency90/my-ci-demo.git', branch: 'master'
       }
     }
     stage('Build') {
