@@ -2,11 +2,6 @@ pipeline {
   agent any
   options { timestamps() }
   stages {
-    stage('Checkout') {
-      steps {
-        git url: 'https://github.com/sency90/my-ci-demo.git', branch: 'master'
-      }
-    }
     stage('Build') {
       steps {
         sh '''
@@ -18,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'ctest --test-dir build --output-on-failure'
+        sh 'ctest --test-dir build --output-on-failure --output-junit build/ctest-report.xml'
       }
     }
     stage('Package') {
